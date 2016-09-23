@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">Boss聘</string>
+    <string name="tab1">通知</string>
+    <string name="tab2">订单</string>
+    <string name="tab3">候选人</string>
+    <string name="tab4">报表</string>
+    <string name="tab5">我的</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">请输入用户名</string>
+    <string name="prompt_password">请输入密码</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="error_invalid_email">用户名不存在</string>
+    <string name="error_invalid_password">密码错误</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">请输入用户名</string>
+    <string name="ensure">确定</string>
+    <string name="save">保存</string>
+    <string name="no_data">暂无数据</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="lijitiyan">立即体验</string>
+    <!-- 登录-->
+    <string name="login">登录</string>
+    <string name="regist">成为合伙人</string>
+    <string name="remember_password">记住密码</string>
+    <string name="forget_password">忘记密码？</string>
+    <string name="understand_boss">了解Boss聘</string>
+    <string name="contact_us">联系我们</string>
+    <string name="username_empty">请输入用户名</string>
+    <string name="password_error">密码长度至少6位</string>
+    <string name="new_pass_noequal">两次密码输入不一致</string>
+    <string name="progress_login">登录中，请稍后...</string>
+    <!-- 成为合伙人-->
+    <string name="enter_company_name">请输入企业名称</string>
+    <string name="enter_name">请输入姓名</string>
+    <string name="enter_phone">请输入手机号码</string>
+    <string name="user_protocol">用户协议</string>
+    <string name="qa">合伙人Q&#38;A</string>
+    <string name="submit">提交</string>
+    <string name="hotline">咨询电话：18800311720 黄一军</string>
+    <!-- 我的-->
+    <string name="person_info">个人信息</string>
+    <string name="partner_protocol">合伙人协议</string>
+    <string name="setting">设置</string>
+    <!-- 个人信息-->
+    <string name="avatar">头像</string>
+    <string name="gender">性别</string>
+    <string name="name">姓名</string>
+    <string name="phone">手机号码</string>
+    <string name="log_account">登录账号</string>
+    <string name="company_name">企业名称</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="uploadhead_fail">头像上传失败！</string>
+    <string name="data_uploading">数据提交中，请稍后...</string>
+    <string name="not_null">内容不能为空！</string>
+    <string name="company_not_null">企业名称不能为空！</string>
+    <string name="name_not_null">姓名不能为空！</string>
+    <string name="code_not_null">验证码为空！</string>
+    <!-- 设置-->
+    <string name="feedback">意见反馈</string>
+    <string name="change_password">密码修改</string>
+    <string name="about">关于Boss聘</string>
+    <string name="log_out">退出登录</string>
+    <string name="enter_oldpassword">请输入原密码</string>
+    <string name="enter_newpassword">请输入新密码</string>
+    <string name="enter_againnewpassword">请再次输入新密码</string>
+    <string name="enter_registphone">请输入注册时的手机号码</string>
+    <string name="enter_verificationcode">请输入验证码</string>
+    <!--意见反馈-->
+    <string name="feedback_hint">请输入您宝贵的意见或者直接联系客服</string>
+    <string name="submit_success">提交成功</string>
+    <string name="submit_progress">提交中...</string>
+    <!--候选人-->
+    <string name="add">添加</string>
+    <string name="wait_check">待审核</string>
+    <string name="passed">已通过</string>
+    <string name="unpass">未通过</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="delete_success">删除成功</string>
+    <string name="recommended_this_candidate">推荐该候选人</string>
+    <!--选择/推荐订单给该候选人列表-->
+    <string name="select_order_hint">公司名称/职位/地区</string>
+    <string name="not_undertake_order">该订单未处理！</string>
+    <string name="no_select_orders">未选择职位</string>
+    <string name="select_orders">选择职位</string>
+    <!--订单-->
+    <string name="order_search_hint">职位名/公司名/创建人</string>
+    <string name="filter">筛选</string>
+    <string name="refuse">拒绝</string>
+    <string name="undertake">承接</string>
+    <string name="recommend_candidate">推荐候选人</string>
+    <string name="is_undertake_order">确认承接此订单?</string>
+    <string name="is_refuse_order">确认拒绝此订单吗？</string>
+    <string name="notice_refuse_order">"拒绝后，若想再次承接此订单，请致电:10086"</string>
+    <!--订单筛选-->
+    <string name="order_filter">订单筛选</string>
+    <string name="chengjie_status">承接状态</string>
+    <!--已推荐的候选人列表-->
+    <string name="already_recommended_candidates">已推荐候选人</string>
+    <string name="already_recommended_candidates_hint">候选人姓名/职位</string>
+    <!--选择候选人列表-->
+    <string name="select_candidate">选择候选人</string>
+    <string name="no_select_candidate">未选择候选人</string>
+    <string name="recommend_candidate_success">推荐成功</string>
+    <!--候选人筛选-->
+    <string name="candidate_search_hint">候选人姓名</string>
+    <string name="advanced_search">高级搜索</string>
+    <string name="status">状态</string>
+    <string name="age">年龄</string>
+    <string name="position">职位</string>
+    <string name="search">搜索</string>
+    <string name="posiotion_select">职位选择</string>
+    <!--添加候选人-->
+    <string name="email_error">邮箱格式错误！</string>
+    <string name="mobile_error">手机号码格式错误！</string>
+    <string name="edit_success">修改成功</string>
+    <string name="add_success">添加成功</string>
+    <string name="edit_candidate">编辑候选人</string>
+    <string name="add_candidate">添加候选人</string>
+    <string name="candidate_name">候选人姓名</string>
+    <string name="gender_selector">性别选择</string>
+    <string name="real_age">真实年龄</string>
+    <string name="phonenumber">手机号码</string>
+    <string name="yuan_companyname">原（现）公司名称</string>
+    <string name="engaged_industry">从事行业</string>
+    <string name="present_department">所在部门</string>
+    <string name="present_position">所在职位</string>
+    <string name="excepted_position">意向职位</string>
+    <string name="work_city">工作城市</string>
+    <string name="email">电子邮箱</string>
+    <string name="remarks">备注</string>
+    <string name="please_select">请选择</string>
+    <string name="enter_yourdepartment">请输入所在部门</string>
+    <string name="enter_yourposition">请输入当前职位</string>
+    <string name="enter_candidatename">请输入姓名</string>
+    <string name="enter_real_age">请输入真实年龄</string>
+    <string name="enter_phonenumber">请输入手机号码</string>
+    <string name="enter_yuan_companyname">请输入公司名称</string>
+    <string name="enter_email">请输入邮箱</string>
+    <string name="enter_remarks">请输入备注内容</string>
+
+
+    <string name="pointMessage">提示信息</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clipToPadding="true"
+    android:background="@android:color/white"
+	android:fitsSystemWindows="true" >
+    <include 
+        android:id="@+id/navigation"
+        layout="@layout/navigation_layout_black"
+        />
+    <com.offer9191.boss.widget.FlowLayout
+        android:id="@+id/fl_selected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|top"
+         android:background="#eeeeee"
+        >
+    </com.offer9191.boss.widget.FlowLayout>
+    <ExpandableListView 
+            android:id="@+id/el_list"  
+	        android:layout_width="match_parent"  
+	        android:layout_height="match_parent"  
+	        android:cacheColorHint="#abcdefff"  
+	        android:listSelector="#f2f1f1" 
+	        android:choiceMode="singleChoice"
+	        android:groupIndicator="@null"
+	        android:layout_marginBottom="5dp"
+            />
+</LinearLayout>

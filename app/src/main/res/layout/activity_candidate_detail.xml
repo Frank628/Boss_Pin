@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/background"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/navgation_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/navigation_bar_height"
+        android:background="@drawable/hxr_bar"
+        >
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:textColor="@android:color/white"
+            android:drawableLeft="@drawable/nav_btn_back"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:drawablePadding="8dp"
+            />
+        <TextView
+            android:id="@+id/tv_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:typeface="monospace"
+            />
+        <TextView
+            android:id="@+id/tv_right2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingRight="12dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="12dp"
+            android:drawableLeft="@drawable/btn_nav_editor"
+            android:layout_toLeftOf="@+id/tv_right"
+            />
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="12dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/btn_nav_share"
+            android:paddingLeft="12dp"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/navgation_top"
+        >
+        <com.offer9191.boss.widget.BridgerWebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </com.offer9191.boss.widget.BridgerWebView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

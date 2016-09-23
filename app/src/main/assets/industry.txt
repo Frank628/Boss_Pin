@@ -1,0 +1,670 @@
+{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "list": [
+      {
+        "CodeID": "6d398f2d-e04e-45ce-965a-ddbec4a6fe0f",
+        "Code": "6d398f2d-e04e-45ce-965a-ddbec4a6fe0f",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "金融",
+        "CodeSeq": 1,
+        "Citys": [
+          {
+            "CodeID": "7d0b7440-b40c-41ce-9c83-f4a2f20f9327",
+            "Code": "7d0b7440-b40c-41ce-9c83-f4a2f20f9327",
+            "CodeCategory": "6d398f2d-e04e-45ce-965a-ddbec4a6fe0f",
+            "CodeValue": "银行",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "ec580367-508c-4414-854e-0dba874b25df",
+            "Code": "ec580367-508c-4414-854e-0dba874b25df",
+            "CodeCategory": "6d398f2d-e04e-45ce-965a-ddbec4a6fe0f",
+            "CodeValue": "证券",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "ce851a52-00d6-45da-891c-53ab8917725b",
+            "Code": "ce851a52-00d6-45da-891c-53ab8917725b",
+            "CodeCategory": "6d398f2d-e04e-45ce-965a-ddbec4a6fe0f",
+            "CodeValue": "期货",
+            "CodeSeq": 3,
+            "Districts": []
+          },
+          {
+            "CodeID": "e86349c5-c838-4152-b89e-ca9ef8f9f326",
+            "Code": "e86349c5-c838-4152-b89e-ca9ef8f9f326",
+            "CodeCategory": "6d398f2d-e04e-45ce-965a-ddbec4a6fe0f",
+            "CodeValue": "保险",
+            "CodeSeq": 4,
+            "Districts": []
+          },
+          {
+            "CodeID": "aecd0aa7-42c7-4bcc-8cb2-7646c78cdb27",
+            "Code": "aecd0aa7-42c7-4bcc-8cb2-7646c78cdb27",
+            "CodeCategory": "6d398f2d-e04e-45ce-965a-ddbec4a6fe0f",
+            "CodeValue": "投资VC/PE",
+            "CodeSeq": 5,
+            "Districts": []
+          },
+          {
+            "CodeID": "ed89082a-8e94-4500-aa86-a27085e83deb",
+            "Code": "ed89082a-8e94-4500-aa86-a27085e83deb",
+            "CodeCategory": "6d398f2d-e04e-45ce-965a-ddbec4a6fe0f",
+            "CodeValue": "基金",
+            "CodeSeq": 6,
+            "Districts": []
+          },
+          {
+            "CodeID": "d0fc9b03-3378-4004-ad86-a4d4ad331be0",
+            "Code": "d0fc9b03-3378-4004-ad86-a4d4ad331be0",
+            "CodeCategory": "6d398f2d-e04e-45ce-965a-ddbec4a6fe0f",
+            "CodeValue": "典当",
+            "CodeSeq": 7,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "17d8457d-bbd8-4c08-83ab-5a8a59fa8c14",
+        "Code": "17d8457d-bbd8-4c08-83ab-5a8a59fa8c14",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "IT/互联网/电子/通信",
+        "CodeSeq": 2,
+        "Citys": [
+          {
+            "CodeID": "1a1d1f81-3a58-4c2c-8108-a8ccc8177f55",
+            "Code": "1a1d1f81-3a58-4c2c-8108-a8ccc8177f55",
+            "CodeCategory": "17d8457d-bbd8-4c08-83ab-5a8a59fa8c14",
+            "CodeValue": "计算机硬件",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "80d26eb8-c95f-43bc-b92d-faf0f59ef02f",
+            "Code": "80d26eb8-c95f-43bc-b92d-faf0f59ef02f",
+            "CodeCategory": "17d8457d-bbd8-4c08-83ab-5a8a59fa8c14",
+            "CodeValue": "计算机软件",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "279ee104-7e8b-4a63-94d4-efcbb652a594",
+            "Code": "279ee104-7e8b-4a63-94d4-efcbb652a594",
+            "CodeCategory": "17d8457d-bbd8-4c08-83ab-5a8a59fa8c14",
+            "CodeValue": "IT服务支持（系统维护、数据分析）",
+            "CodeSeq": 3,
+            "Districts": []
+          },
+          {
+            "CodeID": "c11b3b80-8c1d-4894-a4d6-789fb16a8fed",
+            "Code": "c11b3b80-8c1d-4894-a4d6-789fb16a8fed",
+            "CodeCategory": "17d8457d-bbd8-4c08-83ab-5a8a59fa8c14",
+            "CodeValue": "电子商务",
+            "CodeSeq": 4,
+            "Districts": []
+          },
+          {
+            "CodeID": "373f369a-02e4-40f3-9bfe-05858c17388e",
+            "Code": "373f369a-02e4-40f3-9bfe-05858c17388e",
+            "CodeCategory": "17d8457d-bbd8-4c08-83ab-5a8a59fa8c14",
+            "CodeValue": "网络游戏",
+            "CodeSeq": 5,
+            "Districts": []
+          },
+          {
+            "CodeID": "62b28f46-8e95-4534-ae27-df1bb7b2d932",
+            "Code": "62b28f46-8e95-4534-ae27-df1bb7b2d932",
+            "CodeCategory": "17d8457d-bbd8-4c08-83ab-5a8a59fa8c14",
+            "CodeValue": "通信服务",
+            "CodeSeq": 6,
+            "Districts": []
+          },
+          {
+            "CodeID": "25f3b969-79f7-4930-a8fd-f1043eb0e497",
+            "Code": "25f3b969-79f7-4930-a8fd-f1043eb0e497",
+            "CodeCategory": "17d8457d-bbd8-4c08-83ab-5a8a59fa8c14",
+            "CodeValue": "通信/网络设备",
+            "CodeSeq": 7,
+            "Districts": []
+          },
+          {
+            "CodeID": "80729bdf-acdb-4bcb-a5c9-7736797aaedd",
+            "Code": "80729bdf-acdb-4bcb-a5c9-7736797aaedd",
+            "CodeCategory": "17d8457d-bbd8-4c08-83ab-5a8a59fa8c14",
+            "CodeValue": "电子/半导体/集成电路",
+            "CodeSeq": 8,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "2d71688c-292e-49d9-9ff9-61efcd64dbef",
+        "Code": "2d71688c-292e-49d9-9ff9-61efcd64dbef",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "物流/航运",
+        "CodeSeq": 3,
+        "Citys": [
+          {
+            "CodeID": "9ec8f294-6625-4602-aa9e-0e3c92e4fd09",
+            "Code": "9ec8f294-6625-4602-aa9e-0e3c92e4fd09",
+            "CodeCategory": "2d71688c-292e-49d9-9ff9-61efcd64dbef",
+            "CodeValue": "物流快递",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "19bfaa0c-f845-4e4c-9dad-1535dc018ea1",
+            "Code": "19bfaa0c-f845-4e4c-9dad-1535dc018ea1",
+            "CodeCategory": "2d71688c-292e-49d9-9ff9-61efcd64dbef",
+            "CodeValue": "航空运输",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "2271f589-42ab-40b3-bcb7-441a4eab8c6c",
+            "Code": "2271f589-42ab-40b3-bcb7-441a4eab8c6c",
+            "CodeCategory": "2d71688c-292e-49d9-9ff9-61efcd64dbef",
+            "CodeValue": "远洋运输",
+            "CodeSeq": 3,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "2a87ac27-6ac8-45bc-a981-a6855a49bada",
+        "Code": "2a87ac27-6ac8-45bc-a981-a6855a49bada",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "贸易/批发零售/消费品",
+        "CodeSeq": 4,
+        "Citys": [
+          {
+            "CodeID": "43602e44-9249-4807-b2fe-15fc312639fa",
+            "Code": "43602e44-9249-4807-b2fe-15fc312639fa",
+            "CodeCategory": "2a87ac27-6ac8-45bc-a981-a6855a49bada",
+            "CodeValue": "进出口贸易",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "96cd653c-63a1-4860-ae38-08cc582e2910",
+            "Code": "96cd653c-63a1-4860-ae38-08cc582e2910",
+            "CodeCategory": "2a87ac27-6ac8-45bc-a981-a6855a49bada",
+            "CodeValue": "批发零售",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "930ea673-a584-47fe-950b-266a39d61f3c",
+            "Code": "930ea673-a584-47fe-950b-266a39d61f3c",
+            "CodeCategory": "2a87ac27-6ac8-45bc-a981-a6855a49bada",
+            "CodeValue": "快速消费品（食品/饮料/化妆品/烟酒/日化等）",
+            "CodeSeq": 3,
+            "Districts": []
+          },
+          {
+            "CodeID": "23aaecad-81a7-4ac5-aacd-7391811a2052",
+            "Code": "23aaecad-81a7-4ac5-aacd-7391811a2052",
+            "CodeCategory": "2a87ac27-6ac8-45bc-a981-a6855a49bada",
+            "CodeValue": "服装/纺织/皮革",
+            "CodeSeq": 4,
+            "Districts": []
+          },
+          {
+            "CodeID": "1fb9c298-8997-41e1-a5d4-bea55a6ddff1",
+            "Code": "1fb9c298-8997-41e1-a5d4-bea55a6ddff1",
+            "CodeCategory": "2a87ac27-6ac8-45bc-a981-a6855a49bada",
+            "CodeValue": "家电/手机/电子产品",
+            "CodeSeq": 5,
+            "Districts": []
+          },
+          {
+            "CodeID": "18f4ce9d-41b2-4976-a822-7b1786d509cd",
+            "Code": "18f4ce9d-41b2-4976-a822-7b1786d509cd",
+            "CodeCategory": "2a87ac27-6ac8-45bc-a981-a6855a49bada",
+            "CodeValue": "礼品/玩具/工艺美术/收藏品/奢侈品",
+            "CodeSeq": 6,
+            "Districts": []
+          },
+          {
+            "CodeID": "8d78906e-34d3-4cc9-9d48-3984e2be0727",
+            "Code": "8d78906e-34d3-4cc9-9d48-3984e2be0727",
+            "CodeCategory": "2a87ac27-6ac8-45bc-a981-a6855a49bada",
+            "CodeValue": "办公用品及设备",
+            "CodeSeq": 7,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "bb3ea11c-cc62-48ea-944f-2adaf2073801",
+        "Code": "bb3ea11c-cc62-48ea-944f-2adaf2073801",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "制造/仪表设备",
+        "CodeSeq": 5,
+        "Citys": [
+          {
+            "CodeID": "4e4e2116-bbb1-4180-a285-ba809d72fe7b",
+            "Code": "4e4e2116-bbb1-4180-a285-ba809d72fe7b",
+            "CodeCategory": "bb3ea11c-cc62-48ea-944f-2adaf2073801",
+            "CodeValue": "汽车/机动车/非机动车（制造/维护/配件/销售/服务/租赁）",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "40eaa073-5afa-4b00-801e-138252886c11",
+            "Code": "40eaa073-5afa-4b00-801e-138252886c11",
+            "CodeCategory": "bb3ea11c-cc62-48ea-944f-2adaf2073801",
+            "CodeValue": "大型设备/机电设备/重工业",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "536f06da-d6bb-4ecc-a516-ca343d48c56b",
+            "Code": "536f06da-d6bb-4ecc-a516-ca343d48c56b",
+            "CodeCategory": "bb3ea11c-cc62-48ea-944f-2adaf2073801",
+            "CodeValue": "加工制造（原料加工/模具/3D打印）",
+            "CodeSeq": 3,
+            "Districts": []
+          },
+          {
+            "CodeID": "f83f4aa6-919a-4a96-a609-11ba99fed020",
+            "Code": "f83f4aa6-919a-4a96-a609-11ba99fed020",
+            "CodeCategory": "bb3ea11c-cc62-48ea-944f-2adaf2073801",
+            "CodeValue": "仪器仪表及工业自动化",
+            "CodeSeq": 4,
+            "Districts": []
+          },
+          {
+            "CodeID": "04713d5b-700b-41b2-896d-310a64b901db",
+            "Code": "04713d5b-700b-41b2-896d-310a64b901db",
+            "CodeCategory": "bb3ea11c-cc62-48ea-944f-2adaf2073801",
+            "CodeValue": "航空/航天研究与制造",
+            "CodeSeq": 5,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "fc3e768b-fedf-4893-b30c-2a7792a16258",
+        "Code": "fc3e768b-fedf-4893-b30c-2a7792a16258",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "制药/医药医疗/卫生服务",
+        "CodeSeq": 6,
+        "Citys": [
+          {
+            "CodeID": "22ec2328-c7ea-41c2-80f3-c1d6ea72237f",
+            "Code": "22ec2328-c7ea-41c2-80f3-c1d6ea72237f",
+            "CodeCategory": "fc3e768b-fedf-4893-b30c-2a7792a16258",
+            "CodeValue": "制药/生物工程",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "d796de59-2ebf-43c3-bba6-7476ccd64e95",
+            "Code": "d796de59-2ebf-43c3-bba6-7476ccd64e95",
+            "CodeCategory": "fc3e768b-fedf-4893-b30c-2a7792a16258",
+            "CodeValue": "医疗器械",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "b8727e3a-3baa-4ad5-98ab-a094f4af6f86",
+            "Code": "b8727e3a-3baa-4ad5-98ab-a094f4af6f86",
+            "CodeCategory": "fc3e768b-fedf-4893-b30c-2a7792a16258",
+            "CodeValue": "医疗/护理",
+            "CodeSeq": 3,
+            "Districts": []
+          },
+          {
+            "CodeID": "147b7bc4-c224-4214-8954-57868d6b9f68",
+            "Code": "147b7bc4-c224-4214-8954-57868d6b9f68",
+            "CodeCategory": "fc3e768b-fedf-4893-b30c-2a7792a16258",
+            "CodeValue": "美容/保健",
+            "CodeSeq": 4,
+            "Districts": []
+          },
+          {
+            "CodeID": "f2f5181b-8199-43e1-a3b9-7b0646b9e6ba",
+            "Code": "f2f5181b-8199-43e1-a3b9-7b0646b9e6ba",
+            "CodeCategory": "fc3e768b-fedf-4893-b30c-2a7792a16258",
+            "CodeValue": "健康体检",
+            "CodeSeq": 5,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "8f2fb5ed-97a2-4245-80e0-6ab158c383c7",
+        "Code": "8f2fb5ed-97a2-4245-80e0-6ab158c383c7",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "生活服务",
+        "CodeSeq": 7,
+        "Citys": [
+          {
+            "CodeID": "04d5e2d3-eeff-4646-a988-b0da6f06768f",
+            "Code": "04d5e2d3-eeff-4646-a988-b0da6f06768f",
+            "CodeCategory": "8f2fb5ed-97a2-4245-80e0-6ab158c383c7",
+            "CodeValue": "酒店",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "d01ba289-40b8-4409-b18d-4702ef30f9b2",
+            "Code": "d01ba289-40b8-4409-b18d-4702ef30f9b2",
+            "CodeCategory": "8f2fb5ed-97a2-4245-80e0-6ab158c383c7",
+            "CodeValue": "餐饮",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "c32ef4c2-248e-4421-90cf-c524810fde6b",
+            "Code": "c32ef4c2-248e-4421-90cf-c524810fde6b",
+            "CodeCategory": "8f2fb5ed-97a2-4245-80e0-6ab158c383c7",
+            "CodeValue": "旅游",
+            "CodeSeq": 3,
+            "Districts": []
+          },
+          {
+            "CodeID": "df468322-a2df-4552-8935-c2806fa233e5",
+            "Code": "df468322-a2df-4552-8935-c2806fa233e5",
+            "CodeCategory": "8f2fb5ed-97a2-4245-80e0-6ab158c383c7",
+            "CodeValue": "娱乐/休闲",
+            "CodeSeq": 4,
+            "Districts": []
+          },
+          {
+            "CodeID": "bbb1adad-e298-485d-a643-2b98b514516c",
+            "Code": "bbb1adad-e298-485d-a643-2b98b514516c",
+            "CodeCategory": "8f2fb5ed-97a2-4245-80e0-6ab158c383c7",
+            "CodeValue": "体育运动",
+            "CodeSeq": 5,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "ac588580-6968-46d9-aa50-248eb6606870",
+        "Code": "ac588580-6968-46d9-aa50-248eb6606870",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "房地产/建筑",
+        "CodeSeq": 8,
+        "Citys": [
+          {
+            "CodeID": "78f760ed-b8b8-48b3-81d8-60456f917de4",
+            "Code": "78f760ed-b8b8-48b3-81d8-60456f917de4",
+            "CodeCategory": "ac588580-6968-46d9-aa50-248eb6606870",
+            "CodeValue": "房地产/建筑/工程",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "835f6584-5d64-49a5-9728-2db93cd85c0f",
+            "Code": "835f6584-5d64-49a5-9728-2db93cd85c0f",
+            "CodeCategory": "ac588580-6968-46d9-aa50-248eb6606870",
+            "CodeValue": "室内设计/装潢",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "6f26befb-bf3a-43ef-a7b6-5ecf0e4d3905",
+            "Code": "6f26befb-bf3a-43ef-a7b6-5ecf0e4d3905",
+            "CodeCategory": "ac588580-6968-46d9-aa50-248eb6606870",
+            "CodeValue": "物业管理",
+            "CodeSeq": 3,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "c6534e31-8120-4dd3-b168-d3fcd4866609",
+        "Code": "c6534e31-8120-4dd3-b168-d3fcd4866609",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "影视传媒/公关/",
+        "CodeSeq": 9,
+        "Citys": [
+          {
+            "CodeID": "a933e048-1665-4957-9cf6-afd3e2b9f710",
+            "Code": "a933e048-1665-4957-9cf6-afd3e2b9f710",
+            "CodeCategory": "c6534e31-8120-4dd3-b168-d3fcd4866609",
+            "CodeValue": "广告",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "f4a95e6f-6a6c-4e53-933c-e40a7ae9a53a",
+            "Code": "f4a95e6f-6a6c-4e53-933c-e40a7ae9a53a",
+            "CodeCategory": "c6534e31-8120-4dd3-b168-d3fcd4866609",
+            "CodeValue": "会展/公关",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "3805bc89-4ddf-47be-9896-e44ce81e1ee4",
+            "Code": "3805bc89-4ddf-47be-9896-e44ce81e1ee4",
+            "CodeCategory": "c6534e31-8120-4dd3-b168-d3fcd4866609",
+            "CodeValue": "影视/文化传播",
+            "CodeSeq": 3,
+            "Districts": []
+          },
+          {
+            "CodeID": "626b8395-0f1d-4092-95c5-7b5fa8de45eb",
+            "Code": "626b8395-0f1d-4092-95c5-7b5fa8de45eb",
+            "CodeCategory": "c6534e31-8120-4dd3-b168-d3fcd4866609",
+            "CodeValue": "出版",
+            "CodeSeq": 4,
+            "Districts": []
+          },
+          {
+            "CodeID": "db1773a2-0bd2-4527-8d64-6ad0fe3d9bae",
+            "Code": "db1773a2-0bd2-4527-8d64-6ad0fe3d9bae",
+            "CodeCategory": "c6534e31-8120-4dd3-b168-d3fcd4866609",
+            "CodeValue": "媒体",
+            "CodeSeq": 5,
+            "Districts": []
+          },
+          {
+            "CodeID": "39135a30-71a4-417d-ac38-dbabb01bd7f8",
+            "Code": "39135a30-71a4-417d-ac38-dbabb01bd7f8",
+            "CodeCategory": "c6534e31-8120-4dd3-b168-d3fcd4866609",
+            "CodeValue": "印刷/包装",
+            "CodeSeq": 6,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "dda8a79b-4b3e-42cd-834c-a06111094372",
+        "Code": "dda8a79b-4b3e-42cd-834c-a06111094372",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "专业服务",
+        "CodeSeq": 10,
+        "Citys": [
+          {
+            "CodeID": "d3a1f3c4-9cbf-4bf1-9924-06394c27ea86",
+            "Code": "d3a1f3c4-9cbf-4bf1-9924-06394c27ea86",
+            "CodeCategory": "dda8a79b-4b3e-42cd-834c-a06111094372",
+            "CodeValue": "财务/审计/税务",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "ea5a38d6-f90a-4ff2-a967-cb2702ac8972",
+            "Code": "ea5a38d6-f90a-4ff2-a967-cb2702ac8972",
+            "CodeCategory": "dda8a79b-4b3e-42cd-834c-a06111094372",
+            "CodeValue": "法律",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "1c061a38-73de-4a61-ba27-dd82a9fe8d29",
+            "Code": "1c061a38-73de-4a61-ba27-dd82a9fe8d29",
+            "CodeCategory": "dda8a79b-4b3e-42cd-834c-a06111094372",
+            "CodeValue": "教育/培训",
+            "CodeSeq": 3,
+            "Districts": []
+          },
+          {
+            "CodeID": "0b6e3810-4578-4b81-b8bc-4c79adb27d60",
+            "Code": "0b6e3810-4578-4b81-b8bc-4c79adb27d60",
+            "CodeCategory": "dda8a79b-4b3e-42cd-834c-a06111094372",
+            "CodeValue": "学术/科研",
+            "CodeSeq": 4,
+            "Districts": []
+          },
+          {
+            "CodeID": "be4d4ba9-5d77-4d25-8041-8bd855ab1592",
+            "Code": "be4d4ba9-5d77-4d25-8041-8bd855ab1592",
+            "CodeCategory": "dda8a79b-4b3e-42cd-834c-a06111094372",
+            "CodeValue": "外包服务（人事/财会）",
+            "CodeSeq": 5,
+            "Districts": []
+          },
+          {
+            "CodeID": "a6595734-5139-420c-b5ad-f6c32c47c166",
+            "Code": "a6595734-5139-420c-b5ad-f6c32c47c166",
+            "CodeCategory": "dda8a79b-4b3e-42cd-834c-a06111094372",
+            "CodeValue": "检测/认证/公证",
+            "CodeSeq": 6,
+            "Districts": []
+          },
+          {
+            "CodeID": "a025a3f8-9a33-4710-b003-434d52fb7070",
+            "Code": "a025a3f8-9a33-4710-b003-434d52fb7070",
+            "CodeCategory": "dda8a79b-4b3e-42cd-834c-a06111094372",
+            "CodeValue": "管理咨询",
+            "CodeSeq": 7,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "34125aa1-151b-4795-b0f2-db5c9773d33b",
+        "Code": "34125aa1-151b-4795-b0f2-db5c9773d33b",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "能源/化工/原料/地质",
+        "CodeSeq": 11,
+        "Citys": [
+          {
+            "CodeID": "a38864aa-d563-4008-b090-a3274903631b",
+            "Code": "a38864aa-d563-4008-b090-a3274903631b",
+            "CodeCategory": "34125aa1-151b-4795-b0f2-db5c9773d33b",
+            "CodeValue": "石油/石化/化工",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "56a83bf5-52aa-4b71-864f-45d5f3810a40",
+            "Code": "56a83bf5-52aa-4b71-864f-45d5f3810a40",
+            "CodeCategory": "34125aa1-151b-4795-b0f2-db5c9773d33b",
+            "CodeValue": "地质/矿产",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "209f6a9b-fe99-4c26-8db9-258c62b23f60",
+            "Code": "209f6a9b-fe99-4c26-8db9-258c62b23f60",
+            "CodeCategory": "34125aa1-151b-4795-b0f2-db5c9773d33b",
+            "CodeValue": "采掘/冶炼",
+            "CodeSeq": 3,
+            "Districts": []
+          },
+          {
+            "CodeID": "db3623e3-69e4-4bdb-99e5-178508e2a3a9",
+            "Code": "db3623e3-69e4-4bdb-99e5-178508e2a3a9",
+            "CodeCategory": "34125aa1-151b-4795-b0f2-db5c9773d33b",
+            "CodeValue": "电气/电力/水利",
+            "CodeSeq": 4,
+            "Districts": []
+          },
+          {
+            "CodeID": "3e3f2f51-eb1b-48e7-af57-5929e733df7d",
+            "Code": "3e3f2f51-eb1b-48e7-af57-5929e733df7d",
+            "CodeCategory": "34125aa1-151b-4795-b0f2-db5c9773d33b",
+            "CodeValue": "原材料加工",
+            "CodeSeq": 5,
+            "Districts": []
+          },
+          {
+            "CodeID": "399768b1-46ba-417f-a609-91a9edef2ea8",
+            "Code": "399768b1-46ba-417f-a609-91a9edef2ea8",
+            "CodeCategory": "34125aa1-151b-4795-b0f2-db5c9773d33b",
+            "CodeValue": "新能源",
+            "CodeSeq": 6,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "676340f4-5eaa-4d3c-a316-ca5dc52b0629",
+        "Code": "676340f4-5eaa-4d3c-a316-ca5dc52b0629",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "政府/协会/非盈利机构",
+        "CodeSeq": 12,
+        "Citys": [
+          {
+            "CodeID": "3d2b8385-845f-4368-ae4c-4fe80c75610c",
+            "Code": "3d2b8385-845f-4368-ae4c-4fe80c75610c",
+            "CodeCategory": "676340f4-5eaa-4d3c-a316-ca5dc52b0629",
+            "CodeValue": "政府/公共事业单位",
+            "CodeSeq": 1,
+            "Districts": []
+          },
+          {
+            "CodeID": "2f6f5e01-a54d-4ccb-a8bf-184a11865d63",
+            "Code": "2f6f5e01-a54d-4ccb-a8bf-184a11865d63",
+            "CodeCategory": "676340f4-5eaa-4d3c-a316-ca5dc52b0629",
+            "CodeValue": "协会性质组织",
+            "CodeSeq": 2,
+            "Districts": []
+          },
+          {
+            "CodeID": "e11603a8-b685-4c02-80e2-9d46a5ce6b20",
+            "Code": "e11603a8-b685-4c02-80e2-9d46a5ce6b20",
+            "CodeCategory": "676340f4-5eaa-4d3c-a316-ca5dc52b0629",
+            "CodeValue": "非盈利公益组织",
+            "CodeSeq": 3,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "5140425b-9a66-4ecb-99ad-7111d9f4bfd8",
+        "Code": "5140425b-9a66-4ecb-99ad-7111d9f4bfd8",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "农/林/牧/渔",
+        "CodeSeq": 13,
+        "Citys": [
+          {
+            "CodeID": "6bcbfc31-5497-416d-ab3a-5d6ea16f997b",
+            "Code": "6bcbfc31-5497-416d-ab3a-5d6ea16f997b",
+            "CodeCategory": "5140425b-9a66-4ecb-99ad-7111d9f4bfd8",
+            "CodeValue": "农/林/牧/渔",
+            "CodeSeq": 1,
+            "Districts": []
+          }
+        ]
+      },
+      {
+        "CodeID": "dc935e79-7602-45be-a8c9-2fe28ab5b546",
+        "Code": "dc935e79-7602-45be-a8c9-2fe28ab5b546",
+        "CodeCategory": "VocationCategory",
+        "CodeValue": "其他",
+        "CodeSeq": 14,
+        "Citys": [
+          {
+            "CodeID": "4b1f0274-8987-4dde-872e-f86bf96bea09",
+            "Code": "4b1f0274-8987-4dde-872e-f86bf96bea09",
+            "CodeCategory": "dc935e79-7602-45be-a8c9-2fe28ab5b546",
+            "CodeValue": "其他行业",
+            "CodeSeq": 1,
+            "Districts": []
+          }
+        ]
+      }
+    ]
+  }
+}

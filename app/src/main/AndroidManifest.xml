@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.offer9191.boss">
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.REAL_GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".main.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/StartUpPagerStyle"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.offer9191.boss.main.GuidActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.main.LoginActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.main.RegistActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.main.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.my.ActivityPersonInfo" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.my.ActivitySetting" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.my.ActivityFeedback" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.my.ActivityChangePassword" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.my.ActivityForgetPassword" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.my.AboutActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.candidate.CandidateFilterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.candidate.ToBeRecommendedOrderActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.candidate.AddCandidateActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.offer9191.boss.activity.IndustryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.order.OrderFilterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name=".activity.PositionActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.my.EditPersonInfoActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.order.AlreadyRecommendedCandidatesActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.order.ToBeRecommendedCandidatesActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.order.ToBeRecommendedCandidateFilterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.WebActivityContainer" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.order.OrderDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <activity android:name="com.offer9191.boss.activity.candidate.CandidateDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateUnspecified|adjustPan"/>
+        <!--sharesdk-->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <!-- QQ和QQ空间分享 QQ登录的回调必须要配置的 -->
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- 新浪微博客户端分享回调必须配置 -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!--微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <service
+            android:name="com.offer9191.boss.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+    </application>
+</manifest>

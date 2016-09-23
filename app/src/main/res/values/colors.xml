@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E51C23</color>
+    <color name="colorPrimaryDark">#2A333C</color>
+    <color name="colorAccent">#2A333C</color>
+    <color name="background">#ECF1F7</color>
+    <color name="white_click">#F5F5F5</color>
+    <color name="transaction">#00ffffff</color>
+    <color name="transaction_half">#55ffffff</color>
+    <color name="main_nav_bg">#E51C23</color>
+    <color name="nav_bg">#2A333C</color>
+    <color name="split_line">#E6E6E6</color>
+    <color name="title1">#333333</color>
+    <color name="title2">#666666</color>
+    <color name="title3">#999999</color>
+    <color name="title4">#c8c8c8</color>
+    <color name="title5">#dfdfdf</color>
+
+    <color name="cb_checked">#FF6633</color>
+    <color name="cb_check">#FFFFFF</color>
+
+    <color name="Gray">#e6e6e6</color>
+    <color name="dialogColor">#f0ffffff</color>
+    <color name="dialogTxtColor">#0048fc</color>
+    <!--progress_button -->
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="holo_green_light">#ff99cc00</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+    <color name="holo_red_light">#ffff4444</color>
+    <color name="blue_pressed">#ff0099cc</color>
+    <color name="blue_normal">#ff33b5e5</color>
+    <color name="green_complete">#ff99cc00</color>
+    <color name="purple_progress">#ffaa66cc</color>
+    <color name="red_error">#ffff4444</color>
+
+    <color name="child_unpressed">#f2f2f2</color>
+    <color name="child_pressed">#e9e9e9</color>
+
+    <color name="psts_background_tab_pressed">#1AFFFFFF</color>
+    <color name="psts_background_tab_pressed_ripple">#AAFFFFFF</color>
+</resources>

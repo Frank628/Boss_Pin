@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <include layout="@layout/navigation_layout_black"
+       android:id="@+id/navigation"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_click_bg"
+        android:layout_marginTop="20dp"
+        android:padding="12dp">
+        <EditText
+            android:id="@+id/edt_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:background="@android:color/transparent"
+            android:gravity="left|center_vertical"
+            android:textColor="@color/title2"
+            android:textSize="@dimen/small_middle_text_size"
+            android:layout_toLeftOf="@+id/btn_delete"/>
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_input_cancel"
+            android:background="@null"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+</LinearLayout>
