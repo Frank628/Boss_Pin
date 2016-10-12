@@ -3,6 +3,7 @@ package com.offer9191.boss.activity.candidate;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -49,7 +50,7 @@ public class CandidateFilterActivity extends BaseActivity{
         ageFrom=getIntent().getStringExtra("ageFrom");
         ageTo=getIntent().getStringExtra("ageTo");
         if (!TextUtils.isEmpty(gender)){
-            tv_gender.setText(CommUtils.getOrderStatus(gender));
+            tv_gender.setText(gender);
         }
         if (!TextUtils.isEmpty(ageFrom)){
             tv_age.setText(ageFrom+"-"+ageTo);
@@ -103,6 +104,7 @@ public class CandidateFilterActivity extends BaseActivity{
         Intent intent =new Intent();
         intent.setClass(this, PositionActivity.class);
         intent.putExtra("zhineng", (Serializable)zhinenglist);
+        intent.putExtra("isCity", false);
         startActivityForResult(intent, POSITION_REQUEST);
     }
     @Event(value = R.id.btn_submit)

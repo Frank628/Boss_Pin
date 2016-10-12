@@ -145,7 +145,8 @@
                     android:drawablePadding="6dp"
                     android:button="@null"
                     android:checked="true"
-                    android:text="@string/user_protocol"/>
+                    android:text="@string/user_protocol"
+                    android:visibility="invisible"/>
 
             </RelativeLayout>
             <Button

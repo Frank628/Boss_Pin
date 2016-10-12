@@ -1,5 +1,6 @@
 package com.offer9191.boss.main;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,10 +12,12 @@ import com.offer9191.boss.utils.SharePrefUtil;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by OfferJiShu01 on 2016/8/30.
  */
-public class SplashActivity extends BaseActivity{
+public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,5 +37,17 @@ public class SplashActivity extends BaseActivity{
             startActivity(intent);
         }
         SplashActivity.this.finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
     }
 }

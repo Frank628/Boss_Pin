@@ -145,9 +145,11 @@ public class ToBeRecommendedCandidatesActivity extends BaseActivity{
             }
             @Override
             public void afterTextChanged(Editable editable) {
-                refresh();
-                InputMethodManager imm = (InputMethodManager) ToBeRecommendedCandidatesActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(edt_content.getWindowToken(),0);
+                if (TextUtils.isEmpty(edt_content.getText().toString().trim())){
+                    refresh();
+                    InputMethodManager imm = (InputMethodManager) ToBeRecommendedCandidatesActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(edt_content.getWindowToken(),0);
+                }
             }
         });
         edt_content .setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -167,6 +169,7 @@ public class ToBeRecommendedCandidatesActivity extends BaseActivity{
         RequestParams params=new RequestParams(Constants.URL+"api/Candidate/GetMyCandidateList");
         params.addBodyParameter("sessionId", MyInfoManager.getSessionID(ToBeRecommendedCandidatesActivity.this));
         params.addBodyParameter("candidateStatus", CommUtils.getCVStatusCode("已通过"));
+        params.addBodyParameter("jobOrderID", orderId);
         params.addBodyParameter("key", edt_content.getText().toString());
         params.addBodyParameter("candidateGender", candidateGender);
         params.addBodyParameter("jobTypeCodes", jobTypeCodes);
@@ -219,7 +222,7 @@ public class ToBeRecommendedCandidatesActivity extends BaseActivity{
 
     }
 
-    private void recommendCandidate(String candidateId,String orderId,String companyInterviewJobId){
+    private void recommendCandidate(String candidateId,final String orderId,String companyInterviewJobId){
         if (TextUtils.isEmpty(candidateId)){
             Toast.makeText(ToBeRecommendedCandidatesActivity.this,getString(R.string.no_select_candidate),Toast.LENGTH_SHORT).show();
             return;
@@ -237,6 +240,8 @@ public class ToBeRecommendedCandidatesActivity extends BaseActivity{
                 try {
                     SimpleJson simpleJson =GsonTools.changeGsonToBean(result,SimpleJson.class);
                     if (simpleJson.code==0){
+                        pageindex=0;
+                        getTobeCandidates(pageindex,orderId);
                         Toast.makeText(ToBeRecommendedCandidatesActivity.this,getString(R.string.recommend_candidate_success),Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(ToBeRecommendedCandidatesActivity.this,simpleJson.msg,Toast.LENGTH_SHORT).show();
@@ -268,6 +273,7 @@ public class ToBeRecommendedCandidatesActivity extends BaseActivity{
                     jobTypeCodes=data.getStringExtra("position");
                     ageFrom=data.getStringExtra("ageFrom");
                     ageTo=data.getStringExtra("ageTo");
+                    candidateGender=data.getStringExtra("gender");
                     zhinenglist=(List<CityJson.DistrictsOne>) data.getSerializableExtra("zhineng");
                     refresh();
                     break;

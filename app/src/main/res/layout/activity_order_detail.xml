@@ -79,7 +79,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/navigation_bar_height"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
         <TextView
             android:id="@+id/tv_refuse"
             android:layout_width="0dp"
@@ -117,5 +118,6 @@
         custom:pb_colorPressed="#A81C23"
         custom:pb_colorProgress="#A81C23"
         custom:pb_textComplete="@string/submit_success"
-        custom:pb_textProgress="@string/submit_progress" />
+        custom:pb_textProgress="@string/submit_progress"
+        android:visibility="gone"/>
 </RelativeLayout>

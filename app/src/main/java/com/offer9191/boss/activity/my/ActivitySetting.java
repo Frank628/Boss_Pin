@@ -9,6 +9,10 @@ import com.offer9191.boss.SysApplication;
 import com.offer9191.boss.base.BaseActivity;
 import com.offer9191.boss.main.LoginActivity;
 import com.offer9191.boss.widget.NavigationLayout;
+import com.offer9191.boss.widget.mydialog.animation.BounceEnter.BounceTopEnter;
+import com.offer9191.boss.widget.mydialog.animation.SlideExit.SlideBottomExit;
+import com.offer9191.boss.widget.mydialog.dialog.listener.OnBtnClickL;
+import com.offer9191.boss.widget.mydialog.dialog.widget.NormalDialog;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -44,9 +48,33 @@ public class ActivitySetting extends BaseActivity {
 
     @Event(value = R.id.tv_logout)
     private void logout(View view){
-        Intent intent =new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        SysApplication.getInstance().exit();
+        final NormalDialog dialog = new NormalDialog(ActivitySetting.this);
+        dialog.content("确认退出当前账号？")//
+                .style(NormalDialog.STYLE_TWO)//
+                .titleTextSize(18)//
+                .title("退出")
+                .showAnim(new BounceTopEnter())//
+                .dismissAnim(new SlideBottomExit())//
+                .show();
+
+        dialog.setOnBtnClickL(
+                new OnBtnClickL() {
+                    @Override
+                    public void onBtnClick() {
+
+                        dialog.dismiss();
+                    }
+                },
+                new OnBtnClickL() {
+                    @Override
+                    public void onBtnClick() {
+//                        dialog.dismiss();
+                        Intent intent =new Intent(ActivitySetting.this, LoginActivity.class);
+                        startActivity(intent);
+                        SysApplication.getInstance().exitA();
+                    }
+                });
+
     }
     @Event(value = R.id.rl_about)
     private void aboutClick(View view){

@@ -55,7 +55,7 @@ public class CandidateDetailActivity extends BaseActivity {
     }
     @Event(R.id.tv_right)
     private void shareClick(View view){
-        CommUtils.share("Boss聘","aaa","aaa",getIntent().getStringExtra("url"),"",this);
+        CommUtils.share("Boss聘","BOSS聘-精英推荐",getIntent().getStringExtra("shareurl"),this);
     }
     @Event(R.id.tv_right2)
     private void editClick(View view){

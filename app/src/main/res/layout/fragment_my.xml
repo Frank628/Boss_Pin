@@ -113,13 +113,15 @@
             android:drawableRight="@drawable/icon_arrow_next"
             android:gravity="center_vertical"
             android:drawablePadding="12dp"
+            android:visibility="gone"
             />
 
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#E6E6E6"/>
+        android:background="#E6E6E6"
+        android:visibility="gone"/>
     <RelativeLayout
         android:id="@+id/rl_setting"
         android:layout_width="match_parent"

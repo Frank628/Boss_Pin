@@ -37,7 +37,11 @@ public class IndustryActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        navigationLayout.setCenterText(getString(R.string.posiotion_select));
+        if (getIntent().getBooleanExtra("isCity",false)){
+            navigationLayout.setCenterText(getString(R.string.city_select));
+        }else{
+            navigationLayout.setCenterText(getString(R.string.industry_select));
+        }
         navigationLayout.setLeftText("", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +57,7 @@ public class IndustryActivity extends BaseActivity {
                 IndustryActivity.this.finish();
             }
         });
+        maxNum=getIntent().getIntExtra("maxNum",5);
         initData();
     }
 
@@ -61,7 +66,13 @@ public class IndustryActivity extends BaseActivity {
             hangyelist=(List<CityJson.CityOne>) getIntent().getSerializableExtra("hangye");
         }
         try {
-            CityJson cityBean =GsonTools.changeGsonToBean(FileUtils.getAssetsTxt(IndustryActivity.this,"industry.txt"),CityJson.class) ;
+            String cityString="";
+            if (getIntent().getBooleanExtra("isCity",false)){
+                cityString= FileUtils.getAssetsTxt(IndustryActivity.this, "city.txt");
+            }else{
+                cityString= FileUtils.getAssetsTxt(IndustryActivity.this, "industry.txt");
+            }
+            CityJson cityBean =GsonTools.changeGsonToBean(cityString,CityJson.class) ;
             if (cityBean.code==0) {
                 adapter=new TwoStageAdapter(IndustryActivity.this, cityBean.data.list,maxNum,new TwoStageAdapter.OnChildSelectedListener() {
                     @Override

@@ -27,6 +27,7 @@ import com.offer9191.boss.R;
 import com.offer9191.boss.base.BaseActivity;
 import com.offer9191.boss.config.Constants;
 import com.offer9191.boss.jsonbean.LoginJson;
+import com.offer9191.boss.jsonbean.SimpleJson;
 import com.offer9191.boss.jsonbean.UploadPicJson;
 import com.offer9191.boss.utils.Base64Coder;
 import com.offer9191.boss.utils.FileUtils;
@@ -170,6 +171,7 @@ public class ActivityPersonInfo extends BaseActivity {
                     break;
                 case PHONE_RESULT:
                     tv_phone.setText(data.getStringExtra("result"));
+                    MyInfoManager.setPhone(ActivityPersonInfo.this,data.getStringExtra("result"));
                     break;
                 case IMAGE_REQUEST_CODE:
                     startPhotoZoom(data.getData());
@@ -244,6 +246,7 @@ public class ActivityPersonInfo extends BaseActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        showProgressDialog("","头像上传中,请稍等...");
         RequestParams params=new RequestParams(Constants.URL+"api/User/UpdateUserPhoto");
         params.addBodyParameter("", jsonObject.toString());
         x.http().post(params, new Callback.CommonCallback<String>() {
@@ -266,7 +269,7 @@ public class ActivityPersonInfo extends BaseActivity {
             @Override
             public void onCancelled(CancelledException cex) {}
             @Override
-            public void onFinished() {}
+            public void onFinished() {dismissProgressDialog();}
         });
     }
     private void getPersonInfo(){
@@ -300,7 +303,7 @@ public class ActivityPersonInfo extends BaseActivity {
             public void onFinished() {}
         });
     }
-    private void saveSex(String sex){
+    private void saveSex(final String sex){
         RequestParams params=new RequestParams(Constants.URL+"api/User/UpdateUserInfo");
         params.addBodyParameter("sessionId", MyInfoManager.getSessionID(this));
         params.addBodyParameter("myName","");
@@ -313,7 +316,10 @@ public class ActivityPersonInfo extends BaseActivity {
             public void onSuccess(String result) {
                 Log.i("api/User/UpdateUserInfo",result);
                 try {
-
+                    SimpleJson simpleJson=GsonTools.changeGsonToBean(result,SimpleJson.class);
+                    if (simpleJson.code==0){
+                        MyInfoManager.setSEX(ActivityPersonInfo.this,sex);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

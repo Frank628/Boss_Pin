@@ -44,7 +44,17 @@ public class SysApplication extends Application{
         } catch (Exception e) { 
             e.printStackTrace(); 
         }
-    } 
+    }
+    public void exitA() {
+        try {
+            for (Activity activity : mList) {
+                if (activity != null)
+                    activity.finish();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public void exit() { 
         try { 
             for (Activity activity : mList) { 

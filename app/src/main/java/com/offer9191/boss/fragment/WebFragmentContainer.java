@@ -25,9 +25,14 @@ import com.offer9191.boss.R;
 import com.offer9191.boss.activity.WebActivityContainer;
 import com.offer9191.boss.base.BaseFragment;
 import com.offer9191.boss.config.Constants;
+import com.offer9191.boss.jsonbean.JPushJson;
 import com.offer9191.boss.widget.BridgerWebView;
 import com.offer9191.boss.widget.NavigationLayout;
+import com.wang.avi.AVLoadingIndicatorView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
@@ -39,11 +44,13 @@ import org.xutils.view.annotation.ViewInject;
 public class WebFragmentContainer extends BaseFragment {
     @ViewInject(R.id.webview)BridgerWebView webView;
     @ViewInject(R.id.navigation)NavigationLayout navigationLayout;
-    private  String url="";
-    public static WebFragmentContainer newInstance(String murl){
+    @ViewInject(R.id.avi)AVLoadingIndicatorView avi;
+    private  String url="",name="";
+    public static WebFragmentContainer newInstance(String murl,String name){
         WebFragmentContainer webFragmentContainer =new WebFragmentContainer();
         Bundle args = new Bundle();
         args.putString("tag", murl);
+        args.putString("name", name);
         Log.i("newInstance",murl);
         webFragmentContainer.setArguments(args);
         return webFragmentContainer;
@@ -51,23 +58,42 @@ public class WebFragmentContainer extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
         url= getArguments() != null ? getArguments().getString("tag") : "";
+        name= getArguments() != null ? getArguments().getString("name") : "";
     }
 
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(JPushJson event) {
+        if (event!=null){
+            webView.reload();
+        }
+    }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        avi.setIndicator("BallSpinFadeLoaderIndicator");
+        avi.setVisibility(View.VISIBLE);
+        navigationLayout.setCenterText(name);
         webView.setWebViewClient(new WebViewClient(){
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                Log.i("shouldOverrideUrl",url);
-                Intent intent =new Intent(getActivity(), WebActivityContainer.class);
-                intent.putExtra(Constants.IS_NEED_NAVIGATION,false);
-                intent.putExtra("url",url);
-                startActivity(intent);
-                return true;
+            public boolean shouldOverrideUrlLoading(WebView view, String shouldurl) {
+
+                if (shouldurl.equals(url)){
+                    return super.shouldOverrideUrlLoading(view,shouldurl);
+                }else{
+                    Intent intent =new Intent(getActivity(), WebActivityContainer.class);
+                    intent.putExtra(Constants.IS_NEED_NAVIGATION,false);
+                    intent.putExtra("url",shouldurl);
+                    startActivity(intent);
+                    return true;
+                }
+
             }
 
             @Override
@@ -92,9 +118,15 @@ public class WebFragmentContainer extends BaseFragment {
             @Override
             public void onReceivedTitle(WebView view, String title) {
                 super.onReceivedTitle(view, title);
-                navigationLayout.setCenterText(title);
+//                navigationLayout.setCenterText(title);
             }
-
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                super.onProgressChanged(view, newProgress);
+                if (newProgress==100){
+                    avi.setVisibility(View.GONE);
+                }
+            }
         });
 
         webView.loadUrl(url);
@@ -105,6 +137,7 @@ public class WebFragmentContainer extends BaseFragment {
     @Override
     public void onStart() {
         super.onStart();
+        webView.reload();
     }
 
 

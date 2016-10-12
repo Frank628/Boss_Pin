@@ -1,5 +1,6 @@
 package com.offer9191.boss.utils.network;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +11,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+
+import permissions.dispatcher.NeedsPermission;
 
 
 /**
@@ -96,6 +99,7 @@ public class NetWorkManager {
      * @param context
      * @return
      */
+
     public static SIMIProvider getProvider(Context context){
         SIMIProvider simiProvider= SIMIProvider.NO_SIM;
         TelephonyManager telephonyManager =(TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
@@ -172,6 +176,7 @@ public class NetWorkManager {
         @Override
         public void onReceive(Context context, Intent intent) {
             NetWorkInfo netWorkInfo =new NetWorkInfo(checkNetwork(context),getProvider(context),isNetWorkAvailable(context));
+            Log.i("NetWorkInfo",checkNetwork(context)+"");
             switch (checkNetwork(context)){
                 case NET_2G:
                     netConnectChangeListener.change(netWorkInfo);

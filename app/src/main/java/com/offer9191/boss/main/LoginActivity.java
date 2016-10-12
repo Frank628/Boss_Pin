@@ -57,8 +57,10 @@ import com.offer9191.boss.config.Constants;
 import com.offer9191.boss.jsonbean.LoginJson;
 import com.offer9191.boss.utils.CommUtils;
 import com.offer9191.boss.utils.GsonTools;
+import com.offer9191.boss.utils.SharePrefUtil;
 import com.offer9191.boss.widget.mydialog.dialog.listener.OnOperItemClickL;
 import com.offer9191.boss.widget.mydialog.dialog.widget.ActionSheetDialog;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import org.xutils.common.Callback;
 import org.xutils.ex.HttpException;
@@ -70,6 +72,10 @@ import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -79,20 +85,28 @@ import static android.Manifest.permission.READ_CONTACTS;
 @ContentView(R.layout.activity_login)
 public class LoginActivity extends BaseActivity {
 
-
+    private static String TAG="BINDALIAS";
     @ViewInject(R.id.atv_user)private EditText atv_user;
     @ViewInject(R.id.edt_password) private EditText mPasswordView;
     @ViewInject(R.id.cb_eye) private CheckBox cb_eye;
+    @ViewInject(R.id.cb_rememberpsd)private CheckBox cb_rememberpsd;
     @ViewInject(R.id.ib_delete) private ImageButton ib_delete;
     ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTranslucent(this);
-        if(!TextUtils.isEmpty(MyInfoManager.getUserName(this))){
-            atv_user.setText(MyInfoManager.getUserName(this));
+        atv_user.setText(MyInfoManager.getUserName(this));
+        if(SharePrefUtil.getBoolean(this,Constants.IS_REMEMBER_PASSWORD,true)){
             mPasswordView.setText(MyInfoManager.getPassword(this));
         }
+        cb_rememberpsd.setChecked(SharePrefUtil.getBoolean(this,Constants.IS_REMEMBER_PASSWORD,true));
+        cb_rememberpsd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                SharePrefUtil.saveBoolean(LoginActivity.this,Constants.IS_REMEMBER_PASSWORD,b);
+            }
+        });
         cb_eye.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -190,14 +204,13 @@ public class LoginActivity extends BaseActivity {
             }
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-                Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();
                 if (ex instanceof HttpException) { // 网络错误
                     HttpException httpEx = (HttpException) ex;
                     int responseCode = httpEx.getCode();
                     String responseMsg = httpEx.getMessage();
                     String errorResult = httpEx.getResult();
                 } else { // 其他错误
-                    Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this,"服务器异常，请稍后重试！", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -227,12 +240,13 @@ public class LoginActivity extends BaseActivity {
                 MyInfoManager.setDisplayName(LoginActivity.this,loginJson.data.DisplayName);
                 MyInfoManager.setSessionID(LoginActivity.this,loginJson.data.SessionId);
                 MyInfoManager.setUserPreview(LoginActivity.this,loginJson.data.HDpic);
+                JPushInterface.setAliasAndTags(getApplicationContext(), loginJson.data.PartnersID, null,mAliasCallback);
                 if (loginJson.data.UserType.equals("16032113522111478308d6c2b5439")){
                     Intent intent =new Intent(this,MainActivity.class);
                     startActivity(intent);
                 }else{
                     Intent intent =new Intent(this,WebActivityContainer.class);
-                    intent.putExtra("url",Constants.WEB_URL+"BossApp/manager/index.html?sessionid="+loginJson.data.SessionId);
+                    intent.putExtra("url",Constants.WEB_URL+"BossApp/manager/index.html?sessionid="+loginJson.data.SessionId+"&pagehome=1");
                     startActivity(intent);
                 }
 
@@ -262,13 +276,37 @@ public class LoginActivity extends BaseActivity {
         dialog.setOnOperItemClickL(new OnOperItemClickL() {
             @Override
             public void onOperItemClick(AdapterView<?> parent, View view, int position, long id) {
+                dialog.dismiss();
                 Intent intent = new Intent(Intent.ACTION_CALL);
                 Uri data = Uri.parse("tel:" +stringItems[position]);
                 intent.setData(data);
                 LoginActivity.this.startActivity(intent);
-                dialog.dismiss();
+
             }
         });
     }
+    private final TagAliasCallback mAliasCallback = new TagAliasCallback() {
+
+        @Override
+        public void gotResult(int code, String alias, Set<String> tags) {
+            String logs ;
+            Log.i("JPush alias", alias);
+            switch (code) {
+                case 0:
+                    logs = "Set tag and alias success";
+                    Log.i(TAG, logs);
+                    break;
+                case 6002:
+                    logs = "Failed to set alias and tags due to timeout. Try again.";
+                    Log.i(TAG, logs);
+                    JPushInterface.setAliasAndTags(getApplicationContext(), alias, null,mAliasCallback);
+                    break;
+                default:
+                    logs = "Failed with errorCode = " + code;
+                    Log.e(TAG, logs);
+            }
+        }
+
+    };
 }
 

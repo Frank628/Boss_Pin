@@ -7,8 +7,8 @@
     <include layout="@layout/navigation_layout_black"
         android:id="@+id/navigation"/>
    <ImageView
-       android:layout_width="100dp"
-       android:layout_height="100dp"
+       android:layout_width="80dp"
+       android:layout_height="80dp"
        android:src="@mipmap/app_icon"
        android:scaleType="fitXY"
        android:layout_marginTop="20dp"/>
@@ -17,6 +17,70 @@
         android:layout_height="wrap_content"
         android:id="@+id/tv_version"
         android:textColor="@color/title2"
-        android:textSize="@dimen/small_text_size"
+        android:textSize="@dimen/large_text_size"
+        android:layout_marginTop="10dp"
         />
+    <RelativeLayout
+        android:id="@+id/rl_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_click_bg"
+        android:layout_marginTop="25dp"
+        android:padding="12dp">
+        <TextView
+            android:id="@+id/tv_nametab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/middle_text_size"
+            android:textColor="@color/title3"
+            android:text="@string/current_version"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/tv_currentversion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_middle_text_size"
+            android:textColor="@color/title2"
+            android:layout_centerVertical="true"
+            android:gravity="right|center_vertical"
+            android:layout_toRightOf="@+id/tv_nametab"
+            android:drawablePadding="12dp"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/split_line"/>
+    <RelativeLayout
+        android:id="@+id/rl_boss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_click_bg"
+        android:padding="12dp">
+        <TextView
+            android:id="@+id/tv_bosstab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/middle_text_size"
+            android:textColor="@color/title3"
+            android:text="@string/booss_detail"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_middle_text_size"
+            android:textColor="@color/title2"
+            android:layout_centerVertical="true"
+            android:gravity="right|center_vertical"
+            android:layout_toRightOf="@+id/tv_bosstab"
+            android:drawableRight="@drawable/icon_arrow_next"
+            android:drawablePadding="12dp"
+            />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/split_line"/>
 </LinearLayout>

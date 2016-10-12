@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 
 import com.offer9191.boss.R;
@@ -72,6 +73,7 @@ public class CandidateFragment extends BaseFragment {
         });
         viewpager.setAdapter(new CandidatesFragmentAdapter(getChildFragmentManager()));
         tabs.setViewPager(viewpager);
+        viewpager.setCurrentItem(1);
     }
     @Event(value = R.id.rl_setting)
     private void setting(View view){
@@ -107,13 +109,17 @@ public class CandidateFragment extends BaseFragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode==getActivity().RESULT_OK){
-            key=data.getStringExtra("key");
-            candidateGender=data.getStringExtra("gender");
-            ageFrom=data.getStringExtra("ageFrom");
-            ageTo=data.getStringExtra("ageTo");
-            zhinenglist=(List<CityJson.DistrictsOne>) data.getSerializableExtra("zhineng");
             for(Fragment fragment:getChildFragmentManager().getFragments()){
                 fragment.onActivityResult(requestCode, resultCode, data);
+            }
+            switch (requestCode){
+                case 1101:
+                    key=data.getStringExtra("key");
+                    candidateGender=data.getStringExtra("gender");
+                    ageFrom=data.getStringExtra("ageFrom");
+                    ageTo=data.getStringExtra("ageTo");
+                    zhinenglist=(List<CityJson.DistrictsOne>) data.getSerializableExtra("zhineng");
+                    break;
             }
         }
     }

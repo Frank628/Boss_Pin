@@ -63,7 +63,7 @@ public class ToBeRecommendedOrderActivity extends BaseActivity {
     @ViewInject(R.id.edt_content)EditText edt_content;
     @ViewInject(R.id.ib_delete)ImageButton ib_delete;
     private int pageindex=0, pagesize=20;
-    private String JobOrderStatus="",JobTypeCode="",key="",orderIds="",companyInterviewJobIds="",candidateId="";
+    private String JobOrderStatus=CommUtils.getOrderStatusCode("已承接")+","+CommUtils.getOrderStatusCode("未处理"),JobTypeCode="",key="",orderIds="",companyInterviewJobIds="",candidateId="";
     private List<CityJson.DistrictsOne> zhinenglist;
     private static final int FILTER_REQUEST=2121;
     private List<JobOrderListJson.JobOrderOne> jobList=new ArrayList<JobOrderListJson.JobOrderOne>();
@@ -145,9 +145,12 @@ public class ToBeRecommendedOrderActivity extends BaseActivity {
             }
             @Override
             public void afterTextChanged(Editable editable) {
-                refresh();
-                InputMethodManager imm = (InputMethodManager) ToBeRecommendedOrderActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(edt_content.getWindowToken(),0);
+                if (TextUtils.isEmpty(edt_content.getText().toString().trim())){
+                    refresh();
+                    InputMethodManager imm = (InputMethodManager) ToBeRecommendedOrderActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(edt_content.getWindowToken(),0);
+                }
+
             }
         });
         edt_content .setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -172,8 +175,9 @@ public class ToBeRecommendedOrderActivity extends BaseActivity {
         RequestParams params=new RequestParams(Constants.URL+"api/JobOrder/GetJobOrderList");
         params.addBodyParameter("sessionId", MyInfoManager.getSessionID(ToBeRecommendedOrderActivity.this));
         params.addBodyParameter("JobTypeCode",JobTypeCode);
+        params.addBodyParameter("candidateID",candidateId);
         params.addBodyParameter("key", edt_content.getText().toString().trim());
-        params.addBodyParameter("JobOrderStatus", "");
+        params.addBodyParameter("JobOrderStatus",JobOrderStatus );
         params.addBodyParameter("pageindex", pagenum+"");
         params.addBodyParameter("pagesize", pagesize+"");
         x.http().post(params, new Callback.CommonCallback<String>() {
@@ -220,7 +224,7 @@ public class ToBeRecommendedOrderActivity extends BaseActivity {
         }
     }
     private void recommendOrders(String candidateId,String orderIds,String companyInterviewJobIds){
-        if (TextUtils.isEmpty(candidateId)){
+        if (TextUtils.isEmpty(orderIds)){
             Toast.makeText(ToBeRecommendedOrderActivity.this,getString(R.string.no_select_orders),Toast.LENGTH_SHORT).show();
             return;
         }
@@ -269,6 +273,9 @@ public class ToBeRecommendedOrderActivity extends BaseActivity {
                 case FILTER_REQUEST:
                     JobOrderStatus=data.getStringExtra("status");
                     JobTypeCode=data.getStringExtra("position");
+                    if (TextUtils.isEmpty(JobOrderStatus)){
+                        JobOrderStatus =CommUtils.getOrderStatusCode("已承接")+","+CommUtils.getOrderStatusCode("未处理");
+                    }
                     zhinenglist=(List<CityJson.DistrictsOne>) data.getSerializableExtra("zhineng");
                     refresh();
                     break;

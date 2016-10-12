@@ -7,6 +7,7 @@ import android.nfc.NfcEvent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -63,7 +64,7 @@ import in.srain.cube.views.ptr.PtrHandler;
 public class OrderFragment extends BaseFragment {
     private static final int FILTER_REQUEST=2121;
     private int pageindex=0, pagesize=20;
-    private String JobOrderStatus="",JobTypeCode="",key="";
+    private String JobOrderStatus=CommUtils.getOrderStatusCode("已承接")+","+CommUtils.getOrderStatusCode("未处理"),JobTypeCode="",key="";
     private List<CityJson.DistrictsOne> zhinenglist;
     @ViewInject(R.id.rotate_header_list_view_frame)PtrClassicFrameLayout mPtrFrame;
     @ViewInject(R.id.rotate_header_list_view)LoadMoreListView lv;
@@ -137,7 +138,7 @@ public class OrderFragment extends BaseFragment {
             @Override
             public void convert(ViewHolder helper, final JobOrderListJson.JobOrderOne item, final int position) {
                 helper.setText(R.id.tv_position,item.JobTitle);
-                helper.setText(R.id.tv_address,item.ProvinceName+"-"+item.CityName+" | 发布："+item.MyName);
+                helper.setText(R.id.tv_address,item.ProvinceName+"-"+item.CityName);
                 helper.setText(R.id.tv_status, CommUtils.getOrderStatus(item.JobOrderStatus));
                 helper.setText(R.id.tv_salary, item.PositionLevel);
                 helper.setText(R.id.tv_company, item.CompanyName);
@@ -147,7 +148,8 @@ public class OrderFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         Intent intent= new Intent(getActivity(), OrderDetailActivity.class);
-                        intent.putExtra("url",Constants.WEB_URL+"BossApp/share/positiondatail.html?jobid="+item.JobOrderID);
+                        intent.putExtra("url",Constants.WEB_URL+"BossApp/detail/positiondetail.html?jobid="+item.JobOrderID+"&sessionid="+ MyInfoManager.getSessionID(getActivity()));
+                        intent.putExtra("shareurl",Constants.WEB_URL+"BossApp/share/positiondetail.html?jobid="+item.JobOrderID+"&sessionid="+ MyInfoManager.getSessionID(getActivity()));
                         intent.putExtra("status",item.JobOrderStatus);
                         intent.putExtra("CompanyInterviewJobId",item.CompanyInterviewJobId);
                         intent.putExtra("JobOrderID",item.JobOrderID);
@@ -249,6 +251,9 @@ public class OrderFragment extends BaseFragment {
             switch (requestCode){
                 case FILTER_REQUEST:
                     JobOrderStatus=data.getStringExtra("status");
+                    if (TextUtils.isEmpty(data.getStringExtra("status"))){
+                        JobOrderStatus= CommUtils.getOrderStatusCode("已承接")+","+CommUtils.getOrderStatusCode("未处理");
+                    }
                     JobTypeCode=data.getStringExtra("position");
                     zhinenglist=(List<CityJson.DistrictsOne>) data.getSerializableExtra("zhineng");
                     refresh();
@@ -332,13 +337,14 @@ public class OrderFragment extends BaseFragment {
                     if (simpleJson.code==0){
                         jobList.get(position).JobOrderStatus=CommUtils.getOrderStatusCode("已承接");
                         Log.i("YYYY",CommUtils.getOrderStatus(jobList.get(position).JobOrderStatus));
+                        Toast.makeText(getActivity(),"承接成功",Toast.LENGTH_SHORT).show();
                         if (adapter!=null) {
                             adapter.notifyDataSetChanged();
                         }
                     }else{
                         Toast.makeText(getActivity(),simpleJson.msg,Toast.LENGTH_SHORT).show();
                     }
-                } catch (Exception e) {
+                } catch (Exception e){
                     e.printStackTrace();
                 }
             }

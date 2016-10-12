@@ -54,9 +54,9 @@ public class AddCandidateActivity extends BaseActivity {
     @ViewInject(R.id.edt_remark)EditText edt_remark;
     @ViewInject(R.id.rb_female)RadioButton rb_female;
     @ViewInject(R.id.rb_male)RadioButton rb_male;
-    private String jobTypeCodes="",jobTypeCodeNames="",vocationCodes="",vocationNames="",DistrictCode="";
-    private List<CityJson.CityOne> hangyelist;
-    private List<CityJson.DistrictsOne> zhinenglist,citylist;
+    private String jobTypeCodes="",jobTypeCodeNames="",vocationCodes="",vocationNames="",CityCode="";
+    private List<CityJson.CityOne> hangyelist,citylist;
+    private List<CityJson.DistrictsOne> zhinenglist;
     private static final int INDUSTRY_REQUEST=1;
     private static final int POSITION_REQUEST=2;
     private static final int CITY_REQUEST=3;
@@ -89,8 +89,8 @@ public class AddCandidateActivity extends BaseActivity {
     }
     @Event(value = {R.id.rl_workcity,R.id.edt_workcity})
     private void cityClick(View view){
-        Intent intent =new Intent(this, PositionActivity.class);
-        intent.putExtra("zhineng", (Serializable)citylist);
+        Intent intent =new Intent(this, IndustryActivity.class);
+        intent.putExtra("hangye", (Serializable)citylist);
         intent.putExtra("maxNum",1);
         intent.putExtra("isCity",true);
         startActivityForResult(intent, CITY_REQUEST);
@@ -109,14 +109,25 @@ public class AddCandidateActivity extends BaseActivity {
         String CandidateDepartment=edt_department.getText().toString().trim();
         String Notes=edt_remark.getText().toString().trim();
         String CandidateAge=edt_age.getText().toString().trim();
+        if (TextUtils.isEmpty(candidateName)){
+            Toast.makeText(AddCandidateActivity.this,getString(R.string.candidate_name_error),Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(CandidateMobile)){
+            Toast.makeText(AddCandidateActivity.this,getString(R.string.candidate_phone_error),Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (!CommUtils.isMobile(CandidateMobile)){
             Toast.makeText(AddCandidateActivity.this,getString(R.string.mobile_error),Toast.LENGTH_SHORT).show();
             return;
         }
-        if (!CommUtils.isEmail(CandidateEmail)){
-            Toast.makeText(AddCandidateActivity.this,getString(R.string.email_error),Toast.LENGTH_SHORT).show();
-            return;
+        if (!TextUtils.isEmpty(CandidateEmail)) {
+            if (!CommUtils.isEmail(CandidateEmail)) {
+                Toast.makeText(AddCandidateActivity.this, getString(R.string.email_error), Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
+        showProgressDialog("",getString(R.string.data_uploading));
         RequestParams params=null;
         if (getIntent().getStringExtra("candidateId")!=null){
             params=new RequestParams(Constants.URL+"api/Candidate/EditCandidate");
@@ -132,7 +143,7 @@ public class AddCandidateActivity extends BaseActivity {
         params.addBodyParameter("jobTypeCodeNames",jobTypeCodeNames);
         params.addBodyParameter("vocationCodes",vocationCodes);
         params.addBodyParameter("vocationNames", vocationNames);
-        params.addBodyParameter("DistrictCode", DistrictCode);
+        params.addBodyParameter("CityCode", CityCode);
         params.addBodyParameter("CurrentCompany", CurrentCompany);
         params.addBodyParameter("CandidateEmail", CandidateEmail);
         params.addBodyParameter("CandidateMobile", CandidateMobile);
@@ -166,10 +177,13 @@ public class AddCandidateActivity extends BaseActivity {
             @Override
             public void onCancelled(CancelledException cex) {}
             @Override
-            public void onFinished() {}
+            public void onFinished() {
+                dismissProgressDialog();
+            }
         });
     }
-    private void getCandidate(String candidateId){
+    private void getCandidate(final String candidateId){
+        showProgressDialog("",getString(R.string.data_loading));
         RequestParams params=new RequestParams(Constants.URL+"api/Candidate/GetCandidateInfo");
         params.addBodyParameter("sessionId", MyInfoManager.getSessionID(AddCandidateActivity.this));
         params.addBodyParameter("candidateID",candidateId);
@@ -204,14 +218,15 @@ public class AddCandidateActivity extends BaseActivity {
                             zhinenglist=new ArrayList<CityJson.DistrictsOne>();
                             zhinenglist.add(new CityJson.DistrictsOne(candidateInfoJson.data.JobTypeCodes,candidateInfoJson.data.JobTypeCodeNames));
                         }
-                        edt_workcity.setText(candidateInfoJson.data.DistrictName);
-                        DistrictCode=candidateInfoJson.data.DistrictCode;
-                        if (!TextUtils.isEmpty(candidateInfoJson.data.DistrictCode)){
-                            citylist=new ArrayList<CityJson.DistrictsOne>();
-                            citylist.add(new CityJson.DistrictsOne(candidateInfoJson.data.DistrictCode,candidateInfoJson.data.DistrictName));
+                        edt_workcity.setText(candidateInfoJson.data.CityName);
+                        CityCode=candidateInfoJson.data.CityCode;
+                        if (!TextUtils.isEmpty(candidateInfoJson.data.CityCode)){
+                            citylist=new ArrayList<CityJson.CityOne>();
+                            citylist.add(new CityJson.CityOne(candidateInfoJson.data.CityCode,candidateInfoJson.data.CityName));
                         }
 
                         edt_email.setText(candidateInfoJson.data.CandidateEmail);
+                        edt_remark.setText(candidateInfoJson.data.Notes);
                     }else{
                         Toast.makeText(AddCandidateActivity.this,candidateInfoJson.msg,Toast.LENGTH_SHORT).show();
                     }
@@ -224,7 +239,9 @@ public class AddCandidateActivity extends BaseActivity {
             @Override
             public void onCancelled(CancelledException cex) {}
             @Override
-            public void onFinished() {}
+            public void onFinished() {
+                dismissProgressDialog();
+            }
         });
     }
     @Override
@@ -245,9 +262,9 @@ public class AddCandidateActivity extends BaseActivity {
                     edt_expectposition.setText(CityJsonUtils.listGetZhiValue(zhinenglist));;
                     break;
                 case CITY_REQUEST:
-                    citylist = (List<CityJson.DistrictsOne>) data.getSerializableExtra("zhineng");
-                    jobTypeCodes= CityJsonUtils.listGetDISCode(citylist);
-                    edt_workcity.setText(CityJsonUtils.listGetZhiValue(citylist));
+                    citylist = (List<CityJson.CityOne>) data.getSerializableExtra("hangye");
+                    CityCode= CityJsonUtils.listGetCITYCode(citylist);
+                    edt_workcity.setText(CityJsonUtils.listGetValue(citylist));
                     break;
             }
         }

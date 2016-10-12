@@ -17,5 +17,6 @@ public class LoginJson {
         public String HDpic="";
         public String SessionId="";
         public String PartnersName="";
+        public String  PartnersID="";
     }
 }

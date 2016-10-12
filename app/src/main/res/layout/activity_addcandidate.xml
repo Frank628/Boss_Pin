@@ -41,6 +41,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_toRightOf="@+id/tv_candidatenametab"
                     android:background="@android:color/transparent"
+                    android:paddingRight="5dp"
                     android:maxLines="1"
                     />
             </RelativeLayout>
@@ -125,6 +126,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_toRightOf="@+id/tv_agetab"
                     android:background="@android:color/transparent"
+                    android:paddingRight="5dp"
+                    android:maxEms="2"
                     android:maxLines="1"
                     />
             </RelativeLayout>
@@ -192,6 +195,8 @@
                     android:layout_toRightOf="@+id/tv_companyab"
                     android:maxLines="1"
                     android:singleLine="true"
+                    android:paddingRight="5dp"
+                    android:layout_marginLeft="8dp"
                     android:background="@android:color/transparent"
                     />
             </RelativeLayout>
@@ -228,6 +233,7 @@
                     android:singleLine="true"
                     android:drawableRight="@drawable/icon_arrow_next"
                     android:drawablePadding="5dp"
+                    android:layout_marginLeft="8dp"
                     android:background="@android:color/transparent"
                     />
             </RelativeLayout>
@@ -259,6 +265,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_toRightOf="@+id/tv_departmentab"
                     android:maxLines="1"
+                    android:paddingRight="5dp"
+                    android:layout_marginLeft="8dp"
                     android:background="@android:color/transparent"
                     />
             </RelativeLayout>
@@ -289,7 +297,7 @@
                     android:gravity="right|center_vertical"
                     android:layout_alignParentRight="true"
                     android:layout_toRightOf="@+id/tv_positiontab"
-                    android:maxLines="1"
+                    android:singleLine="true"
                     android:background="@android:color/transparent"
                     />
             </RelativeLayout>
@@ -421,12 +429,13 @@
                     android:textColor="@color/title2"
                     android:textColorHint="@color/title3"
                     android:hint="@string/enter_remarks"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:gravity="right|center_vertical"
                     android:layout_alignParentRight="true"
+                    android:layout_marginLeft="8dp"
+                    android:maxLines="10"
                     android:layout_toRightOf="@+id/tv_remarktab"
                     android:background="@android:color/transparent"
-                    android:maxLines="1"
                     />
             </RelativeLayout>
             <com.offer9191.boss.widget.progressbutton.iml.ActionProcessButton

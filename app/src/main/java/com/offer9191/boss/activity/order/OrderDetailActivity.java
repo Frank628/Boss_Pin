@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.offer9191.boss.MyInfoManager;
 import com.offer9191.boss.R;
+import com.offer9191.boss.activity.WebActivityContainer;
 import com.offer9191.boss.base.BaseActivity;
 import com.offer9191.boss.config.Constants;
 import com.offer9191.boss.jsonbean.SimpleJson;
@@ -65,6 +66,12 @@ public class OrderDetailActivity extends BaseActivity {
                 Log.i("shouldOverrideUrl",url);
                 if (url.startsWith("loginout:")){
                     return  true;
+                }else if(url.contains("jobUserlist.html")){
+                    Intent intent =new Intent(OrderDetailActivity.this,WebActivityContainer.class);
+                    intent.putExtra(Constants.IS_NEED_NAVIGATION,true);
+                    intent.putExtra("url",url);
+                    startActivity(intent);
+                    return true;
                 }else{
                     return super.shouldOverrideUrlLoading(view,url);
                 }
@@ -92,7 +99,7 @@ public class OrderDetailActivity extends BaseActivity {
 
     @Event(R.id.tv_right)
     private void shareClick(View view){
-        CommUtils.share("Boss聘","aaa","aaa",getIntent().getStringExtra("url"),"",this);
+        CommUtils.share("Boss聘","BOSS聘-聘精英",getIntent().getStringExtra("shareurl"),this);
     }
     @Event(R.id.tv_left)
     private void back(View view){

@@ -88,6 +88,7 @@ public class OrderFilterActivity extends BaseActivity {
         Intent intent =new Intent();
         intent.setClass(this, PositionActivity.class);
         intent.putExtra("zhineng", (Serializable)zhinenglist);
+        intent.putExtra("isCity", false);
         startActivityForResult(intent, POSITION_REQUEST);
     }
     @Event(value = R.id.btn_submit)

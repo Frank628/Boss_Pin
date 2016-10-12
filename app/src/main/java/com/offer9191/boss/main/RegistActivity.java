@@ -40,6 +40,7 @@ import com.offer9191.boss.config.Constants;
 import com.offer9191.boss.jsonbean.SimpleJson;
 import com.offer9191.boss.utils.CommUtils;
 import com.offer9191.boss.utils.GsonTools;
+import com.offer9191.boss.widget.Dialog;
 import com.offer9191.boss.widget.mydialog.animation.BounceEnter.BounceTopEnter;
 import com.offer9191.boss.widget.mydialog.animation.SlideExit.SlideBottomExit;
 import com.offer9191.boss.widget.mydialog.dialog.listener.OnBtnClickL;
@@ -91,26 +92,18 @@ public class RegistActivity extends BaseActivity{
                 try {
                     SimpleJson simpleJson = GsonTools.changeGsonToBean(result,SimpleJson.class);
                     if (simpleJson.code==0){
-                        final NormalDialog dialog = new NormalDialog(RegistActivity.this);
-                        dialog.content("正在为您审核，请耐心等待！")//
-                                .btnNum(1)//
-                                .titleTextSize(21)//
-                                .btnText("确定")
-                                .titleLineHeight(0)
-                                .showAnim(new BounceTopEnter())//
-                                .dismissAnim(new SlideBottomExit())//
-                                .show();
 
-                        dialog.setOnBtnClickL(
+                        Dialog.showRadioDialog(RegistActivity.this, "提示", "正在为您审核，请耐心等待！", new Dialog.DialogClickListener() {
+                            @Override
+                            public void confirm() {
+                                RegistActivity.this.finish();
+                            }
 
-                                new OnBtnClickL() {
-                                    @Override
-                                    public void onBtnClick() {
+                            @Override
+                            public void cancel() {
 
-                                        RegistActivity.this.finish();
-                                        dialog.dismiss();
-                                    }
-                                });
+                            }
+                        });
                     }else{
                         Toast.makeText(RegistActivity.this,simpleJson.msg,Toast.LENGTH_SHORT).show();
                     }

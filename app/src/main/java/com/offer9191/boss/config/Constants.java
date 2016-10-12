@@ -5,10 +5,12 @@ package com.offer9191.boss.config;
  */
 public class Constants {
 //    public static final String URL="http://192.168.1.218:88/";
-    public static final String URL="http://103.21.119.72:8088/";
+//    public static final String URL="http://103.21.119.72:8088/";
 //    public static final String URL="http://192.168.1.181:8089/";//潘良峰电脑
     public static final String WEB_URL="http://weichat.9191offer.com/";
+    public static final String URL="http://apiboss.9191offer.com/";
 
+    public static final String IS_REMEMBER_PASSWORD="IS_REMEMBER_PASSWORD";
     public static final String IS_SHOW_GUID="IS_SHOW_GUID";
     public static final String USER_NAME="USER_NAME";
     public static final String PASSWORD="PASSWORD";

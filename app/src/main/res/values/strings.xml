@@ -43,6 +43,8 @@
     <string name="person_info">个人信息</string>
     <string name="partner_protocol">合伙人协议</string>
     <string name="setting">设置</string>
+    <string name="current_version">当前版本号</string>
+    <string name="booss_detail">Boss聘介绍</string>
     <!-- 个人信息-->
     <string name="avatar">头像</string>
     <string name="gender">性别</string>
@@ -54,6 +56,7 @@
     <string name="female">女</string>
     <string name="uploadhead_fail">头像上传失败！</string>
     <string name="data_uploading">数据提交中，请稍后...</string>
+    <string name="data_loading">数据加载中，请稍后...</string>
     <string name="not_null">内容不能为空！</string>
     <string name="company_not_null">企业名称不能为空！</string>
     <string name="name_not_null">姓名不能为空！</string>
@@ -80,27 +83,28 @@
     <string name="edit">编辑</string>
     <string name="delete">删除</string>
     <string name="delete_success">删除成功</string>
+    <string name="is_delete_candidate">确认删除此候选人吗?</string>
     <string name="recommended_this_candidate">推荐该候选人</string>
     <!--选择/推荐订单给该候选人列表-->
-    <string name="select_order_hint">公司名称/职位/地区</string>
+    <string name="select_order_hint">公司名称/职位</string>
     <string name="not_undertake_order">该订单未处理！</string>
     <string name="no_select_orders">未选择职位</string>
     <string name="select_orders">选择职位</string>
     <!--订单-->
-    <string name="order_search_hint">职位名/公司名/创建人</string>
+    <string name="order_search_hint">职位名/公司名</string>
     <string name="filter">筛选</string>
     <string name="refuse">拒绝</string>
     <string name="undertake">承接</string>
     <string name="recommend_candidate">推荐候选人</string>
     <string name="is_undertake_order">确认承接此订单?</string>
     <string name="is_refuse_order">确认拒绝此订单吗？</string>
-    <string name="notice_refuse_order">"拒绝后，若想再次承接此订单，请致电:10086"</string>
+    <string name="notice_refuse_order">"拒绝后，若想再次承接此订单，请致电:18800311720"</string>
     <!--订单筛选-->
     <string name="order_filter">订单筛选</string>
     <string name="chengjie_status">承接状态</string>
     <!--已推荐的候选人列表-->
     <string name="already_recommended_candidates">已推荐候选人</string>
-    <string name="already_recommended_candidates_hint">候选人姓名/职位</string>
+    <string name="already_recommended_candidates_hint">候选人姓名/手机号</string>
     <!--选择候选人列表-->
     <string name="select_candidate">选择候选人</string>
     <string name="no_select_candidate">未选择候选人</string>
@@ -114,6 +118,8 @@
     <string name="search">搜索</string>
     <string name="posiotion_select">职位选择</string>
     <!--添加候选人-->
+    <string name="candidate_name_error">请填写候选人姓名！</string>
+    <string name="candidate_phone_error">请填写候选人手机号！</string>
     <string name="email_error">邮箱格式错误！</string>
     <string name="mobile_error">手机号码格式错误！</string>
     <string name="edit_success">修改成功</string>
@@ -141,9 +147,13 @@
     <string name="enter_yuan_companyname">请输入公司名称</string>
     <string name="enter_email">请输入邮箱</string>
     <string name="enter_remarks">请输入备注内容</string>
+    <string name="industry_select">行业选择</string>
+    <string name="city_select">城市选择</string>
 
 
     <string name="pointMessage">提示信息</string>
     <string name="cancel">取消</string>
     <string name="confirm">确定</string>
+
+    <string name="ssdk_instapager_login_html" formatted="false"></string>
 </resources>

@@ -1,11 +1,13 @@
 package com.offer9191.boss.fragment.candidate;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.offer9191.boss.MyInfoManager;
@@ -24,6 +26,10 @@ import com.offer9191.boss.jsonbean.SimpleJson;
 import com.offer9191.boss.utils.CommUtils;
 import com.offer9191.boss.utils.GsonTools;
 import com.offer9191.boss.widget.LoadMoreListView;
+import com.offer9191.boss.widget.mydialog.animation.BounceEnter.BounceTopEnter;
+import com.offer9191.boss.widget.mydialog.animation.SlideExit.SlideBottomExit;
+import com.offer9191.boss.widget.mydialog.dialog.listener.OnBtnClickL;
+import com.offer9191.boss.widget.mydialog.dialog.widget.NormalDialog;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -91,16 +97,21 @@ public class CandidateSubFragment extends BaseFragment {
         mPtrFrame.setPullToRefresh(false);
         // default is true
         mPtrFrame.setKeepHeaderWhenRefresh(true);
-        mPtrFrame.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mPtrFrame.autoRefresh();
-            }
-        }, 100);
+
         adapter =new CommonAdapter<CandidateListJson.CandidateOne>(getActivity(),candidateList,R.layout.item_candidate) {
             @Override
             public void convert(ViewHolder helper, final CandidateListJson.CandidateOne item, final int position) {
                 helper.setText(R.id.tv_name,item.CandidateName);
+                if (item.CandidateGender.trim().equals("男")){
+                    Drawable drawable= getResources().getDrawable(R.drawable.sex_m);
+                    drawable.setBounds(0, 0, drawable.getMinimumWidth(),drawable.getMinimumHeight());
+                    ((TextView)helper.getView(R.id.tv_name)).setCompoundDrawables(null, null, drawable, null);
+                }else{
+                    Drawable drawable= getResources().getDrawable(R.drawable.sex_g);
+                    drawable.setBounds(0, 0, drawable.getMinimumWidth(),drawable.getMinimumHeight());
+                    ((TextView)helper.getView(R.id.tv_name)).setCompoundDrawables(null, null, drawable, null);
+                }
+
                 helper.setText(R.id.tv_time,item.CreatedTime);
                 helper.setText(R.id.tv_position,item.JobTypeCodeNames);
                 helper.setText(R.id.tv_industry,item.VocationNames);
@@ -109,7 +120,8 @@ public class CandidateSubFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         Intent intent =new Intent(getActivity(), CandidateDetailActivity.class);
-                        intent.putExtra("url",Constants.WEB_URL+"BossApp/share/userdetail.html?userid="+item.CandidateID);
+                        intent.putExtra("url",Constants.WEB_URL+"BossApp/detail/userdetail.html?userid="+item.CandidateID+"&sessionid="+ MyInfoManager.getSessionID(getActivity()));
+                        intent.putExtra("shareurl",Constants.WEB_URL+"BossApp/share/userdetail.html?userid="+item.CandidateID+"&sessionid="+ MyInfoManager.getSessionID(getActivity()));
                         intent.putExtra("candidateId",item.CandidateID);
                         startActivity(intent);
                     }
@@ -131,7 +143,31 @@ public class CandidateSubFragment extends BaseFragment {
                 helper.getView(R.id.rl_delete).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        deleteCandidate(item.CandidateID,position);
+                        final NormalDialog dialog = new NormalDialog(getActivity());
+                        dialog.content(getString(R.string.is_delete_candidate))//
+                                .isTitleShow(true)
+                                .title(" ")
+                                .titleTextSize(0)
+                                .style(NormalDialog.STYLE_TWO)//
+                                .showAnim(new BounceTopEnter())//
+                                .dismissAnim(new SlideBottomExit())//
+                                .show();
+
+                        dialog.setOnBtnClickL(
+                                new OnBtnClickL() {
+                                    @Override
+                                    public void onBtnClick() {
+                                        dialog.dismiss();
+                                    }
+                                },
+                                new OnBtnClickL() {
+                                    @Override
+                                    public void onBtnClick() {
+                                        deleteCandidate(item.CandidateID,position);
+                                        dialog.dismiss();
+                                    }
+                                });
+
                     }
                 });
                 helper.getView(R.id.rl_edit).setOnClickListener(new View.OnClickListener() {
@@ -160,6 +196,17 @@ public class CandidateSubFragment extends BaseFragment {
                 getCandidates(pageindex);
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mPtrFrame.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mPtrFrame.autoRefresh();
+            }
+        }, 100);
     }
 
     private void getCandidates(int pagenum){
@@ -257,6 +304,7 @@ public class CandidateSubFragment extends BaseFragment {
         if (resultCode==getActivity().RESULT_OK){
             switch (requestCode){
                 case 1101:
+                    Log.e("candidateGender",candidateGender);
                     key=data.getStringExtra("key");
                     candidateGender=data.getStringExtra("gender");
                     jobTypeCodes=data.getStringExtra("position");

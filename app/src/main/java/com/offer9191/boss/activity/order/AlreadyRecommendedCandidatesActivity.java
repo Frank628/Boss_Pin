@@ -2,8 +2,10 @@ package com.offer9191.boss.activity.order;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -91,10 +93,19 @@ public class AlreadyRecommendedCandidatesActivity extends BaseActivity {
             @Override
             public void convert(ViewHolder helper, RecommendedCandidateListJson.RecommendedCandidateOne item, int position) {
                 helper.setText(R.id.tv_name,item.CandidateName);
-                helper.setText(R.id.tv_position,item.CandidatePosition);
+                if (item.CandidateGender.trim().equals("男")){
+                    Drawable drawable= getResources().getDrawable(R.drawable.sex_m);
+                    drawable.setBounds(0, 0, drawable.getMinimumWidth(),drawable.getMinimumHeight());
+                    ((TextView)helper.getView(R.id.tv_name)).setCompoundDrawables(null, null, drawable, null);
+                }else{
+                    Drawable drawable= getResources().getDrawable(R.drawable.sex_g);
+                    drawable.setBounds(0, 0, drawable.getMinimumWidth(),drawable.getMinimumHeight());
+                    ((TextView)helper.getView(R.id.tv_name)).setCompoundDrawables(null, null, drawable, null);
+                }
+                helper.setText(R.id.tv_position,item.JobTypeCodeNames);
                 helper.setText(R.id.tv_industry,item.VocationNames);
                 helper.setText(R.id.tv_phone,item.CandidateMobile);
-                helper.setText(R.id.tv_cvstatus, CommUtils.getCandidateStatus(item.JobCandidateStatus));
+                helper.setText(R.id.tv_cvstatus,item.JobCandidateStatus);
             }
         };
         lv.setAdapter(adapter);
@@ -123,9 +134,11 @@ public class AlreadyRecommendedCandidatesActivity extends BaseActivity {
             }
             @Override
             public void afterTextChanged(Editable editable) {
-                refresh();
-                InputMethodManager imm = (InputMethodManager) AlreadyRecommendedCandidatesActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(edt_content.getWindowToken(),0);
+                if (TextUtils.isEmpty(edt_content.getText().toString().trim())){
+                    refresh();
+                    InputMethodManager imm = (InputMethodManager) AlreadyRecommendedCandidatesActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(edt_content.getWindowToken(),0);
+                }
             }
         });
         edt_content .setOnEditorActionListener(new TextView.OnEditorActionListener() {

@@ -27,6 +27,7 @@ public class RecommendedCandidateListJson {
         public String JobCandidateStatus="";
         public String VocationNames="";
         public String CandidatePosition="";
+        public String JobTypeCodeNames="";
 
     }
 }

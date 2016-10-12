@@ -53,13 +53,14 @@
             android:text="@string/chengjie_status"/>
         <TextView
             android:id="@+id/tv_status"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/middle_text_size"
             android:textColor="@color/title2"
             android:layout_alignParentRight="true"
             android:drawableRight="@drawable/icon_arrow_next"
-            android:layout_toRightOf="@+id/tv_statustab"
+            android:layout_toRightOf="@+id/tv_chengjiestatustab"
+            android:gravity="right"
             android:drawablePadding="5dp"/>
     </RelativeLayout>
 

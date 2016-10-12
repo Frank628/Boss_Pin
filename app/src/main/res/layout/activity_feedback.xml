@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_margin="12dp"
-        android:inputType="text"
+        android:inputType="textMultiLine"
         android:padding="10dp"
         android:background="@drawable/edt_feedback_bg"
         android:hint="@string/feedback_hint"
